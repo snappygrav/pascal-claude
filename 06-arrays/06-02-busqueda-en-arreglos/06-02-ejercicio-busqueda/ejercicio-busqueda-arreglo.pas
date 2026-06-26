@@ -18,12 +18,21 @@ VAR
 
 BEGIN
 
+{ acá iteramos con bucle for para el ingreso de datos mediante la entrada estandar }
     for i := 1 to N do
     begin
         writeln('Ingrese el valor ', i);
         readln(arreglo[i]);
     end;
 
+{ asignamos el valor 1 a la variable i para inicializarla y dejarla pronta para usar en el while como contador
+
+en el while se van a evaluar 2 condiciones, una que en principio siempre será verdadera, que va a ser la de (i<N) y la segunda que es la que hará que se corte el while o no.
+
+el tema es que para que lo anterior tenga algún efecto, debemos evaluar nuevamente una condición y es si i llegó a alcanzar el valor de N, porque de esta forma sabremos si el bucle while cortó antes o llegó a terminarse, que si se cumplió esto último, nos indica que se ingresaron en orden ascendente los números en la entrada estandar
+
+a su vez en esa evaluación de condición mediante el if indicamos que si i=N entonces el arreglo está ordenado de manera ascendente y sino (else), mostramos un mensaje que diga que no está ordenado ascendentemente
+ }
     i:=1;
     while (i < N) and (arreglo[i] < arreglo[i+1]) do
         i:= i+1;
