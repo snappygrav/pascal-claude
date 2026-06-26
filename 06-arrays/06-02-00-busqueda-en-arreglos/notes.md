@@ -10,3 +10,6 @@ while (i <= `ULTIMO`) and not cumple_condicion(a[i]) do
 es una doble condición con un and en medio y haremos una evaluación por circuito corto mediante Pascal
 el valor 'siguiente' dependerá del contexto 
 
+Hay muchos problemas que de fondo es una búsqueda y a simple vista no lo parece.
+Hay que saber si necesariamente necesitamos una recorrida completa del array o es una búsqueda más específica.
+
