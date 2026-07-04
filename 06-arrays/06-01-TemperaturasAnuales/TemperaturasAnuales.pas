@@ -87,14 +87,17 @@ begin
   writeln('==================================');
 
   for i := 1 to CANT_MESES do
+    begin
     repeat 
-    
       write('Ingrese la temperatura del mes ', i, ':');
       readln(temperaturas[i]);
       if (temperaturas[i] > MAX_TEMP) or (temperaturas[i] < MIN_TEMP) then
         writeln('Por favor ingrese una teperatura válida entre 50ºC y -50ºC')
     
     until (temperaturas[i] <= MAX_TEMP) and (temperaturas[i] >= MIN_TEMP);
+    
+    {promedio := ;}
+    end;
     
   
   maxTemp := temperaturas[1];
