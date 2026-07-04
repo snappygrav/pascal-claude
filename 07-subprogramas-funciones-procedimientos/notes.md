@@ -55,3 +55,44 @@ Si el bloque es un procedimiento, estará antecedido de la palabra procedure nom
 Si el bloque es una función, estará antecedido de la palabra function(parámetros...) : tipo;
 
 IR A VER 07-01-FUNCIONES Y 07-02-PROCEDIMIENTOS
+
+
+PARÁMETROS NOMINALES Y EFECTIVOS
+Los nominales son los nombres que aparecen en el encabezado de la función.
+
+En la función potencia, tanto base como exponente son dos parámetros nominales.
+function potencia(base: real; exponente: integer) : real;
+En los nominales quedan cargados los valores de entrada que reciba la función. Para este caso son base y exponente.
+
+Los parámetros efectivos son las expresiones que aparecen en la invocación de la función.
+pot:= potencia(pi,23); <!-- en este caso pi y 23 son los parámetro efectivos, es decir, parámetro concretos que se le pasan a una función al ser llamada y luego se cargan en los parámetros nominales. -->
+...
+Writeln(potencia(2*pi*sqr(radio),N+2));
+
+Los parámetros efectivos pueden ser valores constantes, variables o expresiones que sean de tipo compatible con los del cabezal.
+
+Para cada parámetro, el tipo de parámetro nominal y el tipo del respectivo parámetro efectivo, deben ser compatibles.
+
+Es una buena práctica definirse una variable en la cual uno puede preparar el resultado que desea devolver y luego al final de la función, utilizar a la derecha de la asignación el nombre de esa variable y a la izquierda el nombre de la función, para catapultar desde el bloque de la función, el resultado al lugar en donde fue invocada.
+
+FUNCIONES BOOLEANAS
+Son funciones que verifican la validez de una propiedad.
+Ejemplo: búsqueda en un arreglo.
+
+Puedo querer hacer una función que devuelva como resultado true o false.
+
+type
+    arreglo = array [0...N] of integer;
+
+function pertenece(x : integer; A : arreglo) : boolean;
+(* retorna true si x pertenece al arreglo *)
+var
+ i : integer;
+begin
+    i:= 1;
+    (* evaluamos por circuito corto*)
+    while (i <= N) and (A[i] <> x) do
+        i:= i + 1;
+    
+    pertenece := i <= N;
+end; (pertenece)

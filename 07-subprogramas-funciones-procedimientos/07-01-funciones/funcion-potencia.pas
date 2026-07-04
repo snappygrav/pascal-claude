@@ -14,11 +14,20 @@ begin
         pot := pot * base;
     
     if negativo then
-        potencia := 1 / pot
+        potencia := 1 / pot { esta instrucción en donde usamos el nombre de la función como si fuera el nombre de una variable, debemos hacerlo al final de la función para devolver el resultado hacia quien haya hecho la invocación de dicha función. Es decir, usamos el nombre de la función al final de todo para que el valor obtenido sea devuelto al "mundo externo". }
     else
-        potencia := pot;
+        potencia := pot; { idem lo de arriba }
 end;
 
 { las variables que tenemos declaradas acá, únicamente viven dentro de esta función. }
+ 
+{ si dentro de otra función o procedimiento hay variables que tengan el mismo nombre que otra variable local en otro subprograma, no importa, porque son independientes por más que se llamen igual. }
 
-{ seguir viendo en minuto 44:13 }
+{ 
+Dentro de la función potencia, tenemos tres variables.
+
+En la variable pot vamos a acumular el resultado de manera interna.
+Un contador llamado i, para variable de control de un For.
+Una variable booleana para darle vuelta el signo en caso de que venga negativo.
+
+}
